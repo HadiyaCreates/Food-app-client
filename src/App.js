@@ -187,7 +187,6 @@ import Contact from "./Components/Contact/Contact";
 import Coupon from "./Components/Offer/Coupon";
 import Payment from "./Components/Payment/Payment";
 import Orders from "./Components/Order/Orders";
-import OrdersPage from "./Components/Payment/OrdersPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -274,7 +273,7 @@ function App() {
         <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
         <Route path="/coupons" element={<Coupon cart={cart} setDiscount={setDiscount} />} />
         <Route path="/payment" element={<Payment user={user} cart={cart} setCart={setCart} />} />
-       <Route path="/orders" element={<OrdersPage user={user} />} />
+        <Route path="/orders" element={<Orders user={user}/>} />
       </Routes>
 
       <Footer />
