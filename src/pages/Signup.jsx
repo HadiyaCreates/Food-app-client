@@ -38,7 +38,7 @@ const Signup = ({ setUser }) => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post("http://localhost:8000/api/auth/signup", form);
+    const res = await axios.post("https://food-app-server-6nod.onrender.com/api/auth/signup", form);
     setUser({ name: form.name, email: form.email });
 
     Swal.fire({

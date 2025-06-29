@@ -17,7 +17,8 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:8000/api/contact", {
+    // const res = await fetch("http://localhost:8000/api/contact", {
+    const res = await fetch("https://food-app-server-6nod.onrender.com/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

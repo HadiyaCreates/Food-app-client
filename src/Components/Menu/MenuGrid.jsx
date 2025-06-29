@@ -33,7 +33,7 @@ const MenuGrid = ({ wishlist, setWishlist, cart, setCart  }) => {
 
   // Fetch food items from API
   useEffect(() => {
-    axios.get('http://localhost:8000/api/foods')
+    axios.get('https://food-app-server-6nod.onrender.com/api/foods')
       .then(res => setFoodItems(res.data))
       .catch(err => console.error(err));
   }, []);

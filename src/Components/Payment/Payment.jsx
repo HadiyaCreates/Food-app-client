@@ -291,7 +291,7 @@ const Payment = ({ setCart }) => {
       },
     }).then(async () => {
       try {
-        await axios.post("http://localhost:8000/order/create", {
+        await axios.post("https://food-app-server-6nod.onrender.com/order/create", {
           userId: user._id,
           userName: user.name,
           items: cart,

@@ -7,7 +7,7 @@ const OrdersPage = ({ user }) => {
 
   useEffect(() => {
     if (user?._id) {
-      axios.get(`http://localhost:8000/order/${user._id}`)
+      axios.get(`https://food-app-server-6nod.onrender.com/order/${user._id}`)
         .then((res) => setOrders(res.data))
         .catch((err) => console.error(err));
     }

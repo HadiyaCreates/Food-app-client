@@ -39,7 +39,7 @@ const Login = ({setUser}) => {
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
-    const res = await axios.post("http://localhost:8000/api/auth/login", form);
+    const res = await axios.post("https://food-app-server-6nod.onrender.com/api/auth/login", form);
 
     localStorage.setItem("user", JSON.stringify(res.data.user));
     setUser(res.data.user);

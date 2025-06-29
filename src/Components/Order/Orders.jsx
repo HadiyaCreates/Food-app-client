@@ -88,7 +88,7 @@ const Orders = () => {
 
   const fetchOrders = async (userId) => {
     try {
-      const res = await axios.get(`http://localhost:8000/order/${userId}`);
+      const res = await axios.get(`https://food-app-server-6nod.onrender.com/order/${userId}`);
       setOrders(res.data);
     } catch (error) {
       console.error("Error fetching orders", error);

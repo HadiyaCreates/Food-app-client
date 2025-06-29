@@ -116,7 +116,7 @@ const handleLogout = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put("http://localhost:8000/api/auth/update", form);
+      const res = await axios.put("https://food-app-server-6nod.onrender.com/api/auth/update", form);
       setUser(res.data); // update user globally
       Swal.fire("Success", "Profile updated successfully!", "success");
       navigate("/");
