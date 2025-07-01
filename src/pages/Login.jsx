@@ -8,50 +8,72 @@ const Login = ({setUser}) => {
   const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const res = await axios.post("http://localhost:8000/api/auth/login", form);
 
-  //     // Save user data to localStorage
-  //     localStorage.setItem("user", JSON.stringify(res.data.user));
-  //      setUser(res.data.user); 
-  //     // Success alert
-  //     Swal.fire({
-  //       title: "Login Successful!",
-  //       icon: "success",
-  //       text: "Welcome back!",
-  //       showConfirmButton: false,
-  //       timer: 1500,
-  //     });
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   try {
+//     const res = await axios.post("https://food-app-server-6nod.onrender.com/api/auth/login", form);
 
-  //     // Redirect to home after short delay
-  //     setTimeout(() => navigate("/"), 1600);
-  //   } catch (err) {
-  //     Swal.fire({
-  //       icon: "error",
-  //       title: "Oops...",
-  //       text: err.response?.data?.message || "Login failed!",
-  //       footer: '<a href="#">Why did this happen?</a>',
-  //     });
-  //   }
-  // };
+//     localStorage.setItem("user", JSON.stringify(res.data.user));
+//     setUser(res.data.user);
+
+//     // 🎉 Success Alert (dark themed)
+//     Swal.fire({
+//       title: "Login Successful!",
+//       text: "Welcome back!",
+//       icon: "success",
+//       background: "#1f1f1f", // dark background
+//       color: "#fff", // white text
+//       iconColor: "#facc15", // yellow icon
+//       showConfirmButton: false,
+//       timer: 1500,
+//       customClass: {
+//         popup: "rounded-lg shadow-lg",
+//         title: "text-yellow-400 text-lg font-semibold",
+//         content: "text-white",
+//       },
+//     });
+
+//     setTimeout(() => navigate("/"), 1600);
+//   } catch (err) {
+//     // ❌ Error Alert (dark themed)
+//     Swal.fire({
+//       icon: "error",
+//       title: "Oops...",
+//       text: err.response?.data?.message || "Login failed!",
+//       background: "#1f1f1f",
+//       color: "#fff",
+//       iconColor: "#f87171", // red icon
+//       footer: '<a href="#" style="color: #facc15;">Why did this happen?</a>',
+//       customClass: {
+//         popup: "rounded-lg shadow-lg",
+//         title: "text-red-400 text-lg font-semibold",
+//         content: "text-white",
+//       },
+//     });
+//   }
+// };
 const handleSubmit = async (e) => {
   e.preventDefault();
   try {
+    console.log("🔐 Submitting login form with:", form);
+
     const res = await axios.post("https://food-app-server-6nod.onrender.com/api/auth/login", form);
 
+    console.log("✅ Login response:", res.data);
+
     localStorage.setItem("user", JSON.stringify(res.data.user));
+    console.log("📦 User saved to localStorage:", res.data.user);
+
     setUser(res.data.user);
 
-    // 🎉 Success Alert (dark themed)
     Swal.fire({
       title: "Login Successful!",
       text: "Welcome back!",
       icon: "success",
-      background: "#1f1f1f", // dark background
-      color: "#fff", // white text
-      iconColor: "#facc15", // yellow icon
+      background: "#1f1f1f",
+      color: "#fff",
+      iconColor: "#facc15",
       showConfirmButton: false,
       timer: 1500,
       customClass: {
@@ -61,16 +83,19 @@ const handleSubmit = async (e) => {
       },
     });
 
-    setTimeout(() => navigate("/"), 1600);
+    setTimeout(() => {
+      console.log("➡️ Redirecting to home...");
+      navigate("/");
+    }, 1600);
   } catch (err) {
-    // ❌ Error Alert (dark themed)
+    console.error("❌ Login failed:", err);
     Swal.fire({
       icon: "error",
       title: "Oops...",
       text: err.response?.data?.message || "Login failed!",
       background: "#1f1f1f",
       color: "#fff",
-      iconColor: "#f87171", // red icon
+      iconColor: "#f87171",
       footer: '<a href="#" style="color: #facc15;">Why did this happen?</a>',
       customClass: {
         popup: "rounded-lg shadow-lg",
