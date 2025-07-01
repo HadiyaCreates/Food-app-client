@@ -14,7 +14,7 @@ const Signup = ({ setUser }) => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/auth/signup",
+        "https://food-app-server-6nod.onrender.com/api/auth/signup",
         form
       );
 
