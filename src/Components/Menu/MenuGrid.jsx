@@ -18,7 +18,7 @@ const categoryMap = {
   "": "All"
 };
 
-const MenuGrid = ({ wishlist, setWishlist, cart, setCart  }) => {
+const MenuGrid = ({ wishlist, setWishlist, cart, setCart, user  }) => {
   const location = useLocation();
   const path = location.pathname.split('/')[1]; // e.g., "pizza", "desserts"
   const initialCategory = categoryMap[path] || "All";
@@ -79,6 +79,7 @@ const MenuGrid = ({ wishlist, setWishlist, cart, setCart  }) => {
             }}
              cart={cart}
              setCart={setCart}
+             user={user}
           />
         ))}
       </div>

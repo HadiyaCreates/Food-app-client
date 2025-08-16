@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaGoogle, FaFacebookF, FaApple } from "react-icons/fa";
+import GoogleLoginButton from "../Components/GoogleLoginButton";
 
 const Login = ({setUser}) => {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -143,6 +144,9 @@ const handleSubmit = async (e) => {
           <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-full transition">
             Login
           </button>
+          {/* <div className="text-center my-4 text-gray-400">OR</div> */}
+
+{/* <GoogleLoginButton setUser={setUser} /> */}
         </form>
 
         {/* Divider

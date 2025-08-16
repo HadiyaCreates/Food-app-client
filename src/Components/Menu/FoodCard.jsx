@@ -1,7 +1,7 @@
 
 import { FaHeart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-
+import Swal from "sweetalert2"; 
 const FoodCard = ({
   _id,
   name,
@@ -12,7 +12,8 @@ const FoodCard = ({
   isWishlisted,
   toggleWishlist,
   cart,
-  setCart
+  setCart,
+  user
 }) => {
   const navigate = useNavigate();
 
@@ -27,6 +28,18 @@ const FoodCard = ({
   // };
 
   const handleAddToCart = () => {
+       if (!user) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You are not logged in!",
+        background: "#1f1f1f",
+        color: "#fff",
+        iconColor: "#f87171",
+      });
+      return;
+    }
+
   const safeCart = Array.isArray(cart) ? cart : [];
   const exists = safeCart.some(item => item._id === _id);
 
@@ -37,6 +50,20 @@ const FoodCard = ({
   navigate('/cart');
 };
 
+const handleAddToWishlist = () => {
+  if (!user) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "You are not logged in!",
+      background: "#1f1f1f",
+      color: "#fff",
+      iconColor: "#f87171",
+    });
+    return;
+  }
+  toggleWishlist();
+};
 
   return (
     <div className="relative bg-black text-white p-4 rounded-md shadow-[0_0_15px_rgba(255,255,255,0.05)]">
@@ -45,7 +72,7 @@ const FoodCard = ({
         className={`absolute top-2 left-2 p-1 rounded-full bg-white ${
           isWishlisted ? 'text-red-600' : 'text-gray-600'
         }`}
-        onClick={toggleWishlist}
+      onClick={handleAddToWishlist}
       >
         <FaHeart />
       </button>

@@ -28,7 +28,7 @@ import FoodCard from '../Menu/FoodCard';
 //     </div>
 //   );
 // };
-const Wishlist = ({ wishlist, setWishlist, cart, setCart }) => {
+const Wishlist = ({ wishlist, setWishlist, cart, setCart, user }) => {
   return (
     <div className="bg-[#1f1f1f] min-h-screen p-6">
       {wishlist.length === 0 ? (
@@ -44,6 +44,7 @@ const Wishlist = ({ wishlist, setWishlist, cart, setCart }) => {
               cart={cart}
               setCart={setCart}
               isWishlisted={true}
+                user={user}     
               toggleWishlist={() =>
                 setWishlist(wishlist.filter(w => w._id !== item._id))
               }

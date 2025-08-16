@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
+// import GoogleLoginButton from "../Components/GoogleLoginButton";
 const Signup = ({ setUser }) => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const navigate = useNavigate();
@@ -110,6 +110,51 @@ const Signup = ({ setUser }) => {
             Signup
           </button>
         </form>
+        {/* <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+  <div>
+    <label className="text-sm">Email</label>
+    <input
+      type="email"
+      placeholder="Enter your email"
+      value={form.email}
+      onChange={(e) => setForm({ ...form, email: e.target.value })}
+      className="w-full p-2 mt-1 bg-transparent border-b border-gray-500 focus:outline-none"
+      required
+    />
+  </div>
+  <div>
+    <label className="text-sm">Name</label>
+    <input
+      type="text"
+      placeholder="Enter your name"
+      value={form.name}
+      onChange={(e) => setForm({ ...form, name: e.target.value })}
+      className="w-full p-2 mt-1 bg-transparent border-b border-gray-500 focus:outline-none"
+      required
+    />
+  </div>
+  <div>
+    <label className="text-sm">Password</label>
+    <input
+      type="password"
+      placeholder="Enter your password"
+      value={form.password}
+      onChange={(e) => setForm({ ...form, password: e.target.value })}
+      className="w-full p-2 mt-1 bg-transparent border-b border-gray-500 focus:outline-none"
+      required
+    />
+  </div>
+
+  <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-full transition">
+    Signup
+  </button>
+</form> */}
+
+{/* OR divider */}
+{/* <div className="text-center my-4 text-gray-400">OR</div> */}
+
+{/* <GoogleLoginButton setUser={setUser} /> */}
+
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
 import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import EditProfile from "./pages/EditProfile";
 import Menu from "./Components/Menu/Menu";
 import Wishlist from "./Components/wishlist/Whishlist";
@@ -74,7 +74,7 @@ function App() {
         <Route path="/contact" element={<Contact setUser={setUser} />} />
         <Route path="/edit-profile" element={<EditProfile user={user} setUser={setUser} />} />
 
-        <Route
+        {/* <Route
           path="/wishlist"
           element={
             <Wishlist
@@ -84,7 +84,11 @@ function App() {
               setCart={setCart}
             />
           }
-        />
+        /> */}
+<Route
+  path="/wishlist"
+  element={user ? <Wishlist wishlist={wishlist} setWishlist={setWishlist} cart={cart} setCart={setCart}  user={user}/> : <Navigate to="/login" />}
+/>
 
         {["/pizza", "/pasta", "/desserts", "/drinks", "/salad", "/menu"].map((path) => (
           <Route
@@ -96,12 +100,17 @@ function App() {
                 setWishlist={setWishlist}
                 cart={cart}
                 setCart={setCart}
+                user={user}
               />
             }
           />
         ))}
 
-        <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
+        {/* <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} /> */}
+     <Route
+  path="/cart"
+  element={user ? <CartPage cart={cart} setCart={setCart} /> : <Navigate to="/login" />}
+/>
         <Route path="/coupons" element={<Coupon cart={cart} setDiscount={setDiscount} />} />
         <Route path="/payment" element={<Payment user={user} cart={cart} setCart={setCart} />} />
         <Route path="/orders" element={<Orders user={user}/>} />
