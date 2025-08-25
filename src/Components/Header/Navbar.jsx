@@ -86,9 +86,9 @@ const Navbar = ({ user, setUser, cart = [], wishlist = [] }) => {
                   className="w-12 h-12 rounded-full cursor-pointer"
                   onClick={() => navigate("/edit-profile")}
                 />
-                <div className="absolute top-10 left-0 hidden group-hover:block bg-black p-2 z-50">
+                {/* <div className="absolute top-10 left-0 hidden group-hover:block bg-black p-2 z-50">
                   <UpdateProfileImage user={user} setUser={setUser} />
-                </div>
+                </div> */}
               </div>
             </>
           ) : (
@@ -183,7 +183,7 @@ const Navbar = ({ user, setUser, cart = [], wishlist = [] }) => {
                   className="w-[3rem] h-[3rem] rounded-full cursor-pointer"
                   onClick={() => navigate("/edit-profile")}
                 />
-                <span className="text-sm text-white">{user.email}</span>
+                {/* <span className="text-sm text-white">{user.email}</span> */}
               </div>
             ) : (
               <>
