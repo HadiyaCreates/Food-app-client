@@ -118,7 +118,14 @@ const handleLogout = () => {
     try {
       const res = await axios.put("https://food-app-server-6nod.onrender.com/api/auth/update", form);
       setUser(res.data); // update user globally
-      Swal.fire("Success", "Profile updated successfully!", "success");
+ Swal.fire({
+  title: "Success",
+  text: "Profile updated successfully!",
+  icon: "success",
+  background: "#1f1f1f", // black background
+  color: "#fff",         // white text
+  iconColor: "#facc15",  // yellow icon (optional)
+});
       navigate("/");
     } catch (err) {
       Swal.fire("Oops", err.response?.data?.message || "Update failed", "error");
